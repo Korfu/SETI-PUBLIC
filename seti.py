@@ -19,6 +19,16 @@ def decimal_to_base_activated():
     decimal_to_base(user_input, destination_base)
     print(binary)
 
+def base_to_decimal_activated():
+    user_input = input("Please provide a number to convert: ")
+    destination_base = int(input("Please provide a base number "))
+    input_numbers = []
+    for i in user_input:
+        if i.isdigit():
+            input_numbers.append(int(i))
+    result = base_to_decimal(input_numbers, destination_base)
+    print(result)
+
 def decimal_to_binary(user_input):
     """Returns the array of digits in binary representation of a decimal number"""
     if user_input > 1:
@@ -40,10 +50,14 @@ def decimal_to_base(decimal_number, destination_base):
         decimal_to_base(decimal_number // destination_base, destination_base)
     binary.append(decimal_number % destination_base)
 
-
-def base_to_decimal(digits, original_base):
+def base_to_decimal(input_numbers, destination_base):
     """Returns the decimal (number) representation of an array of digits given in original_base"""
-    pass
+    result = 0 
+    exponent = 0
+    for element in reversed(input_numbers):
+        result += element*pow(destination_base, exponent)
+        exponent += 1
+    return result
 
 
 def digits_as_string(digits, base):
@@ -55,4 +69,4 @@ def convert_base(original_digits, original_base, destination_base):
     """Conversion from any base to any other base"""
     pass
 
-decimal_to_base_activated()
+base_to_decimal_activated()

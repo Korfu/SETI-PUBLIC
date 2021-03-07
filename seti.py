@@ -1,6 +1,21 @@
-def decimal_to_binary(decimal_number):
-    """Returns the array of digits in binary representation of a decimal number"""
-    pass
+binary = []
+def main():
+    user_input = int(input("Please provide a number"))
+    decimal_to_binary(user_input)
+    print(binary)
+
+def decimal_to_binary(user_input):
+    if user_input > 1:
+        decimal_to_binary(user_input//2)
+    binary.append(user_input % 2)
+
+main()
+
+
+
+
+
+
 
 
 def binary_to_decimal(binary_digits):

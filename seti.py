@@ -1,5 +1,5 @@
 def decimal_to_binary(decimal_number):
-    """Returns the array of digits in binary representation of a decimal number"""
+    """Returns the array of digits in binary representation of a decimal number one one111"""
     pass
 
 

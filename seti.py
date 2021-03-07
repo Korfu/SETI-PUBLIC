@@ -1,6 +1,17 @@
-def decimal_to_binary(decimal_number):
-    """Returns the array of digits in binary representation of a decimal number one one111"""
-    pass
+binary = []
+def main():
+    user_input = int(input("Please provide a number to convert: "))
+    decimal_to_binary(user_input)
+    print(binary)
+
+def decimal_to_binary(user_input):
+    """Returns the array of digits in binary representation of a decimal number"""
+    if user_input > 1:
+        decimal_to_binary(user_input//2)
+    binary.append(user_input % 2)
+
+
+
 
 
 def binary_to_decimal(binary_digits):
@@ -26,3 +37,4 @@ def digits_as_string(digits, base):
 def convert_base(original_digits, original_base, destination_base):
     """Conversion from any base to any other base"""
     pass
+main()

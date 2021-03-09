@@ -1,4 +1,3 @@
-max_base = 16
 binary = []
 def main():
     #user_input = int(input("Please provide a number to convert:"))
@@ -6,12 +5,11 @@ def main():
     #print(binary)
     user_input = input("Please provide a number to convert: ")
     destination_base = int(input("Please provide a number base: "))
-
-    if (destination_base > 16):
-        raise ValueError(f"Base number cannot be greater than {max_base}")
-    input_numbers = user_input.replace("[","").replace("]","").split(",")
-    input_number_as_int = list(map(int,input_numbers))
-    result = digits_as_string(input_number_as_int, destination_base)
+    input_numbers = []
+    for i in user_input:
+        if i.isdigit():
+            input_numbers.append(int(i))
+    result = base_to_decimal(input_numbers, destination_base)
     print(result)
 
 def decimal_to_binary(user_input):
@@ -46,13 +44,8 @@ def base_to_decimal(digits, original_base):
 
 def digits_as_string(digits, base):
     """Returns the string representation of an array of digits given in base"""
-    dictionary = {0:"0", 1: "1", 2:"2", 3:"3", 4:"4", 5:"5", 6:"6", 7:"7", 8:"8", 9:"9", 10:"A", 11:"B", 12:"C", 13:"D", 14:"E", 15:"F"}
-    result_list = []
-    for i in digits:
-        if i > max_base:
-               raise ValueError(f"given number ({i}) cannot be greater than {max_base}")
-        result_list.append(dictionary[i])
-    return "".join(result_list)
+    
+
 
 def convert_base(original_digits, original_base, destination_base):
     """Conversion from any base to any other base"""
